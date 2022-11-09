@@ -1,0 +1,20 @@
+// get method for id ---------
+
+//  const num ='634d896c065b5f89e13ae003';
+//   const [providers, setProviders] = useState([]);
+//   const [jobid,setJobId]= useState();
+//   async function getAllProvider() {
+//     try {
+//       var providerss = await axios.get(
+       
+//        ` http://10.109.148.232:8000//api/get/${num}`,
+//       );
+//       // console.log(providerss.data._id);
+//       setProviders([providerss.data]);
+//       setJobId(providerss.data._id)
+//     } catch (error) {
+//       console.log(error,"@@@@@@@@@@@@@@@@");
+//     }
+//   }
+//   getAllProvider();
+  
