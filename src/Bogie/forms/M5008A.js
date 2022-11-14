@@ -118,7 +118,7 @@ const[providers,setProviders] = useState();
   
   
     axios
-      .post(' http://192.168.2.122:8000/api/ac2t', {
+      .post(' http://10.109.148.231:8000/api/ac2t', {
                  //M5008
           FORM_TYPE: form,
         M5008_Drawing_No:     drawingNo,
@@ -232,7 +232,7 @@ const[providers,setProviders] = useState();
 const postDataUsingSimplePostCall2 = () => {
   
   axios
-  .post(' http://192.168.2.122:8000/api/ac2t', {
+  .post(' http://10.109.148.231:8000/api/ac2t', {
              //M5008
     FORM_TYPE: form,
     M5008_Drawing_No:     drawingNo,
@@ -338,7 +338,7 @@ const postDataUsingSimplePostCall2 = () => {
 
 async function getAllProvider() {
   try {
-    const providers = await axios.get(`  http://192.168.2.122:8000/api/joblink/${id}`);
+    const providers = await axios.get(`  http://10.109.148.231:8000/api/joblink/${id}`);
     setProviders([providers.data]);
     // setJobId(providers.data._id);
   } catch (error) {
@@ -367,7 +367,7 @@ const failhandle= ()=>{
 
    async function assign (){
     const providers2 = await axios
-    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+    .put(`  http://10.109.148.231:8000/api/get/${id}`, {
       JOB_ASSIGNED_A: true,
     })
     .then(function (response) {

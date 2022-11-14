@@ -50,7 +50,7 @@ import TabC from './tabC';
 //    async function getAllProvider() {
 //   try {
 //     const providers = await axios.get(
-//       ` http://192.168.2.122:8000/api/get/${id}`,
+//       ` http://10.109.148.231:8000/api/get/${id}`,
 //     );
 //    // console.log(providers.data);
 //    setProviders([providers.data]);
@@ -146,7 +146,7 @@ import TabC from './tabC';
 // //   async function getAllProvider() {
 // //  try {
 // //    const providers = await axios.get(
-// //      ` http://192.168.2.122:8000/api/get/${id}`,
+// //      ` http://10.109.148.231:8000/api/get/${id}`,
 // //    );
 // //   // console.log(providers.data);
 // //   setProviders([providers.data]);
@@ -172,7 +172,7 @@ import TabC from './tabC';
 
 // async function getAllProvider() {
 //   try {
-//     const providers = await axios.get(`  http://192.168.2.122:8000/api/joblink/${id}`);
+//     const providers = await axios.get(`  http://10.109.148.231:8000/api/joblink/${id}`);
 //     setProviders([providers.data]);
 //     console.log(providers.data.jobData,"dataaaaa")
 //     //console.log('hello',providers.data.jobData[1].AC2_LINK.TEST_PASSED)
@@ -617,7 +617,7 @@ import TabC from './tabC';
 // //   async function getAllProvider() {
 // //  try {
 // //    const providers = await axios.get(
-// //      ` http://192.168.2.122:8000/api/get/${id}`,
+// //      ` http://10.109.148.231:8000/api/get/${id}`,
 // //    );
 // //   // console.log(providers.data);
 // //   setProviders([providers.data]);
@@ -642,7 +642,7 @@ import TabC from './tabC';
 
 // async function getAllProvider() {
 //   try {
-//     const providers = await axios.get(`  http://192.168.2.122:8000/api/joblink/${id}`);
+//     const providers = await axios.get(`  http://10.109.148.231:8000/api/joblink/${id}`);
 //     setProviders([providers.data]);
 //     //console.log('hello',providers.data.jobData[1].AC2_LINK.TEST_PASSED)
 //    //setPassed(providers.data.jobData[1].AC2_LINK.TEST_PASSED)

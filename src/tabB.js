@@ -82,7 +82,7 @@ export default function TabB({navigation, route}) {
   //   async function getAllProvider() {
   //  try {
   //    const providers = await axios.get(
-  //      ` http://192.168.2.122:8000/api/get/${id}`,
+  //      ` http://10.109.148.231:8000/api/get/${id}`,
   //    );
   //   // console.log(providers.data);
   //   setProviders([providers.data]);
@@ -105,7 +105,7 @@ export default function TabB({navigation, route}) {
     async function getAllProvider() {
       try {  
         const providers = await axios.get(
-          `  http://192.168.2.122:8000/api/joblink/${id}`,
+          `  http://10.109.148.231:8000/api/joblink/${id}`,
         );
         setProviders([providers.data]);
 
@@ -697,7 +697,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: `${formname}`,
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1165,7 +1165,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5008',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1633,7 +1633,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5008A',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1807,7 +1807,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5017',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2021,7 +2021,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5023',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2069,7 +2069,7 @@ export default function TabB({navigation, route}) {
     <th bgcolor="lightgrey" colspan="2">Vol</th>
     <td>-1</td>
     <th bgcolor="lightgrey"colspan="2">Dated</th>
-    <td>17.08.2018</td>
+    <td>${stage1.wheel_Date}</td>
  </tr>
  <tr >
   <th bgcolor="lightgrey" rowspan="2">Sr no.</th>
@@ -2226,7 +2226,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'Stage1',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
 
       let file = await RNHTMLtoPDF.convert(options);
@@ -2245,6 +2245,13 @@ export default function TabB({navigation, route}) {
     if (await isPermitted()) {
       let options = {
         //Content to print
+        format:"A4",
+        margin:{
+          top:"80px",
+          right:"80px",
+          bottom:"100px",
+          left:"80px"
+        },
         html: `
         <html lang="en">
 
@@ -2268,7 +2275,7 @@ export default function TabB({navigation, route}) {
     <th bgcolor="lightgrey" >Vol</th>
     <td>-1</td>
     <th bgcolor="lightgrey" >Dated</th>
-    <td>17.08.2018</td>
+    <td>${stage2.wheel_Date}</td>
  </tr>
  <tr >
     
@@ -2377,7 +2384,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'Stage2',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2393,6 +2400,13 @@ export default function TabB({navigation, route}) {
    const createPDFstage3 = async () => {
     if (await isPermitted()) {
       let options = {
+        format:"A4",
+        margin:{
+          top:"80px",
+          right:"80px",
+          bottom:"100px",
+          left:"80px"
+        },
         //Content to print
         html: `
         <html lang="en">
@@ -2419,7 +2433,7 @@ export default function TabB({navigation, route}) {
 <th  bgcolor="lightgrey" >Vol</th>
 <td  >-1</td>
 <th colspan="2" bgcolor="lightgrey" >Dated</th>
-<td  >17.08.2018</td>
+<td  >${stage3.wheel_Date}</td>
 </tr>
 
 
@@ -2566,7 +2580,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'Stage3',
         //File directory
-        directory: 'Download',
+        directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2583,6 +2597,13 @@ export default function TabB({navigation, route}) {
      const createPDFstage4n5 = async () => {
       if (await isPermitted()) {
         let options = {
+          format:"A4",
+        margin:{
+          top:"80px",
+          right:"80px",
+          bottom:"100px",
+          left:"80px"
+        },
           //Content to print
           html: `
           <html lang="en">
@@ -2606,7 +2627,7 @@ export default function TabB({navigation, route}) {
     <th bgcolor="lightgrey" >Vol</th>
     <td>-1</td>
     <th bgcolor="lightgrey" colspan="2">Dated</th>
-    <td>17.08.2018</td>
+    <td>${stage4n5.wheel_Date}</td>
  </tr>
  <tr >
   <th bgcolor="lightgrey" rowspan="2">Sr no.</th>
@@ -2742,7 +2763,7 @@ export default function TabB({navigation, route}) {
           //File Name
           fileName: 'Stage4_5',
           //File directory
-          directory: 'Download',
+          directory: 'docs',
         };
         let file = await RNHTMLtoPDF.convert(options);
         console.log(file.filePath);
@@ -2758,6 +2779,13 @@ export default function TabB({navigation, route}) {
      const createPDFstage6 = async () => {
       if (await isPermitted()) {
         let options = {
+          format:"A4",
+        margin:{
+          top:"80px",
+          right:"80px",
+          bottom:"100px",
+          left:"80px"
+        },
           //Content to print
           html: `
           <html lang="en">
@@ -2783,7 +2811,7 @@ export default function TabB({navigation, route}) {
     <th  bgcolor="lightgrey" >Vol</th>
     <td  >-1</td>
     <th  bgcolor="lightgrey">Dated</th>
-    <td  >17.08.2018</td>
+    <td  >${stage6.wheel_Date}</td>
  </tr>
  <tr >
     
@@ -2892,7 +2920,7 @@ export default function TabB({navigation, route}) {
           //File Name
           fileName: 'Stage6',
           //File directory
-          directory: 'Download',
+          directory: 'docs',
         };
         let file = await RNHTMLtoPDF.convert(options);
         console.log(file.filePath);

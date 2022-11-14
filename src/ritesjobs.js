@@ -25,7 +25,7 @@ const FormList = ({navigation, route}) => {
 
   async function getAllProvider() {
     try {
-      const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
+      const providers = await axios.get(`  http://10.109.148.231:8000/api/get/${id}`);
       setProviders([providers.data]);
       // setJobId(providers.data._);
       setJobCondition1(providers.data.JOB_ASSIGNED_A)

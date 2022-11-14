@@ -44,7 +44,7 @@ const Stage1 = ({navigation, route}) => {
 
   const postDataUsingSimplePostCall1 = () => {
     axios
-      .post(' http://192.168.2.122:8000/api/ac2t', {
+      .post(' http://10.109.148.231:8000/api/ac2t', {
         FORM_TYPE: 'STAGE1',
         wheel_Date: datee,
         input1: input1,
@@ -82,7 +82,7 @@ const Stage1 = ({navigation, route}) => {
 
   const postDataUsingSimplePostCall2 = () => {
     axios
-      .post(' http://192.168.2.122:8000/api/ac2t', {
+      .post(' http://10.109.148.231:8000/api/ac2t', {
         FORM_TYPE: 'STAGE1',
         wheel_Date: datee,
         input1: input1,
@@ -128,7 +128,7 @@ const Stage1 = ({navigation, route}) => {
   async function getAllProvider() {
     try {
       const providers = await axios.get(
-        `  http://192.168.2.122:8000/api/joblink/${id}`,
+        `  http://10.109.148.231:8000/api/joblink/${id}`,
       );
       setProviders([providers.data]);
       // setJobId(providers.data._id);
@@ -143,7 +143,7 @@ const Stage1 = ({navigation, route}) => {
   const getAllProvider2= async() =>{
     try {
       const providers = await axios.get(
-        'http://192.168.2.122:8000/api/userno',
+        'http://10.109.148.231:8000/api/userno',
       );
       // console.log(providers.data);
       setUser(providers.data);
@@ -213,7 +213,7 @@ const Stage1 = ({navigation, route}) => {
 
  async function assign (){
   const providers2 = await axios
-  .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+  .put(`  http://10.109.148.231:8000/api/get/${id}`, {
     JOB_ASSIGNED_A: true,
   })
   .then(function (response) {
@@ -229,7 +229,7 @@ const Stage1 = ({navigation, route}) => {
 
  async function getAllProvider3() {
   try {
-    const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
+    const providers = await axios.get(`  http://10.109.148.231:8000/api/get/${id}`);
     setProviders3(providers.data);
     // setJobId(providers.data._id);
     setCount(providers3.COUNTER_A)
@@ -250,7 +250,7 @@ useEffect(() => {
 // setting counter
 async function assignRework (){
   const providers2 = await axios
-  .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+  .put(`  http://10.109.148.231:8000/api/get/${id}`, {
     JOB_ASSIGNED_A: true,
     COUNTER_A: ++count,
     
@@ -265,7 +265,7 @@ async function assignRework (){
 
  async function assignReworkPass (){
   const providers2 = await axios
-  .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+  .put(`  http://10.109.148.231:8000/api/get/${id}`, {
     JOB_ASSIGNED_A: true,
     COUNTER_A: ++count,
     REWORK_ASSIGNED_A:false
@@ -371,7 +371,7 @@ async function assignRework (){
 
             <View style={styles.stageforminside}>
               <Text style={styles.text2}>Dated</Text>
-              <Text style={styles.text2}>17.08.2018</Text>
+              <Text style={styles.text2}>{datee}</Text>
             </View>
           </View>
         </View>

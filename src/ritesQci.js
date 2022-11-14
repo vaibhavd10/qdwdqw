@@ -21,7 +21,7 @@ const RitesQci = ({navigation}) => {
     async function getAllProvider() {
         try {
           const providers = await axios.get(
-            ' http://192.168.2.122:8000/api/get',
+            ' http://10.109.148.231:8000/api/get',
           );
           // console.log(providers.data);
           const filtered = providers.data.filter((user)=>{

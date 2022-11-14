@@ -122,7 +122,7 @@ import {
      const postDataUsingSimplePostCall1 = () => {
    
       axios
-        .post(' http://192.168.2.122:8000/api/ac2t', {
+        .post(' http://10.109.148.231:8000/api/ac2t', {
           BOGIE_TYPE_NO: value,
           SHIFT: value2,
           APPLICABLE_DRAWING_NO: value3,
@@ -208,7 +208,7 @@ import {
   const postDataUsingSimplePostCall2 = () => {
    
     axios
-      .post(' http://192.168.2.122:8000/api/ac2t', {
+      .post(' http://10.109.148.231:8000/api/ac2t', {
         BOGIE_TYPE_NO: value,
         SHIFT: value2,
         APPLICABLE_DRAWING_NO: value3,
@@ -292,7 +292,7 @@ import {
 
 async function getAllProvider() {
   try {
-    const providers = await axios.get(`  http://192.168.2.122:8000/api/joblink/${id}`);
+    const providers = await axios.get(`  http://10.109.148.231:8000/api/joblink/${id}`);
     setProviders([providers.data]);
     // setJobId(providers.data._id);
   } catch (error) {
@@ -306,7 +306,7 @@ async function getAllProvider() {
 // console.log("hii bahar hu")
 async function assign (){
   const providers2 = await axios
-  .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+  .put(`  http://10.109.148.231:8000/api/get/${id}`, {
     JOB_ASSIGNED_B: true,
   })
   .then(function (response) {
