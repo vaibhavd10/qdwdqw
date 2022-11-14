@@ -30,6 +30,16 @@ export default function TabC({navigation, route}) {
   const [ jobcondition5,setJobCondition5] = useState();
   const [shop,setShop] = useState();
 
+  const [rework1,setRework1] = useState();
+  const [rework2,setRework2] = useState();
+  const [rework3,setRework3] = useState();
+  const [rework4,setRework4] = useState();
+  const [rework5,setRework5] = useState();
+  const [count1,setCount1] = useState();
+  const [count2,setCount2] = useState();
+  const [count3,setCount3] = useState();
+  const [count4,setCount4] = useState();
+  const [count5,setCount5] = useState();
 
   const [formname, setFormname] = useState();
   const [passed, setPassed] = useState();
@@ -71,7 +81,7 @@ export default function TabC({navigation, route}) {
   //   async function getAllProvider() {
   //  try {
   //    const providers = await axios.get(
-  //      ` http://10.109.148.232:8000/api/get/${id}`,
+  //      ` http://192.168.2.122:8000/api/get/${id}`,
   //    );
   //   // console.log(providers.data);
   //   setProviders([providers.data]);
@@ -92,7 +102,7 @@ export default function TabC({navigation, route}) {
     async function getAllProvider() {
       try {
         const providers = await axios.get(
-          `  http://10.109.148.232:8000/api/joblink/${id}`,
+          `  http://192.168.2.122:8000/api/joblink/${id}`,
         );
         setProviders([providers.data]);
 
@@ -120,31 +130,179 @@ export default function TabC({navigation, route}) {
           } 
           else if (
             jobcondition1 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE1'
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === false &&
+            ac2Array[i].TEST_PASSED === false &&
+            count1 === 0
           ) {
             setStage1(ac2Array[i]);
           } 
           else if (
+            jobcondition1 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === true &&
+            count1 === 1 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage1(ac2Array[i]);
+          }
+          else if (
+            jobcondition1 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === true &&
+            count1 === 2 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage1(ac2Array[i]);
+          }else if (
+            jobcondition1 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === true &&
+            count1 === 3 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage1(ac2Array[i]);
+          }
+          else if (
             jobcondition2 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE2'
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === false &&
+            ac2Array[i].TEST_PASSED === false &&
+            count2 === 0
           ) {
             setStage2(ac2Array[i]);
           } 
           else if (
+            jobcondition2 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === true &&
+            count2 === 1 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage2(ac2Array[i]);
+          }
+          else if (
+            jobcondition2 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === true &&
+            count2 === 2 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage2(ac2Array[i]);
+          }else if (
+            jobcondition2 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === true &&
+            count2 === 3 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage2(ac2Array[i]);
+          }
+          else if (
             jobcondition3 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE3'
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === false &&
+            ac2Array[i].TEST_PASSED === false &&
+            count3 === 0
           ) {
             setStage3(ac2Array[i]);
           } 
           else if (
+            jobcondition3 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === true &&
+            count3 === 1 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage3(ac2Array[i]);
+          }
+          else if (
+            jobcondition3 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === true &&
+            count3 === 2 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage3(ac2Array[i]);
+          }
+          else if (
+            jobcondition3 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === true &&
+            count3 === 3 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage3(ac2Array[i]);
+          }
+          else if (
             jobcondition4 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE45'
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === false &&
+            ac2Array[i].TEST_PASSED === false  &&
+            count4 === 0
           ) {
             setStage4n5(ac2Array[i]);
           } 
           else if (
+            jobcondition4 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === true &&
+            count4 === 1 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage4n5(ac2Array[i]);
+          }
+          else if (
+            jobcondition4 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === true &&
+            count4 === 2 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage4n5(ac2Array[i]);
+          }
+          else if (
+            jobcondition4 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === true &&
+            count4 === 3 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage4n5(ac2Array[i]);
+          }
+          else if ( 
             jobcondition5 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE6'
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === false &&
+            ac2Array[i].TEST_PASSED === false &&
+            count5 === 0
+          ) {
+            setStage6(ac2Array[i]);
+          } 
+          else if ( 
+            jobcondition5 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === true &&
+            count5 === 1 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage6(ac2Array[i]);
+          } 
+          else if ( 
+            jobcondition5 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === true &&
+            count5 === 2 &&
+            ac2Array[i].TEST_PASSED === false
+          ) {
+            setStage6(ac2Array[i]);
+          } 
+          else if ( 
+            jobcondition5 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === true &&
+            count5 === 3 &&
+            ac2Array[i].TEST_PASSED === false
           ) {
             setStage6(ac2Array[i]);
           } 
@@ -171,6 +329,16 @@ export default function TabC({navigation, route}) {
           setJobCondition3(element.JOB_ASSIGNED_C);
           setJobCondition4(element.JOB_ASSIGNED_D);
           setJobCondition5(element.JOB_ASSIGNED_E);
+          setRework1(element.REWORK_ASSIGNED_A);
+          setRework2(element.REWORK_ASSIGNED_B);
+          setRework3(element.REWORK_ASSIGNED_C);
+          setRework4(element.REWORK_ASSIGNED_D);
+          setRework5(element.REWORK_ASSIGNED_E);
+          setCount1(element.COUNTER_A);
+          setCount2(element.COUNTER_B);
+          setCount3(element.COUNTER_C);
+          setCount4(element.COUNTER_D);
+          setCount5(element.COUNTER_E);
 
           // AC_Link
 
@@ -986,7 +1154,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'M5008',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1454,7 +1622,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'M5008A',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1628,7 +1796,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'M5017',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1842,7 +2010,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'M5023',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2039,7 +2207,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'Stage1',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2189,7 +2357,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'Stage2',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2377,7 +2545,7 @@ export default function TabC({navigation, route}) {
         //File Name
         fileName: 'Stage3',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2553,7 +2721,7 @@ export default function TabC({navigation, route}) {
           //File Name
           fileName: 'Stage4_5',
           //File directory
-          directory: 'docs',
+          directory: 'Download',
         };
         let file = await RNHTMLtoPDF.convert(options);
         console.log(file.filePath);
@@ -2703,7 +2871,7 @@ export default function TabC({navigation, route}) {
           //File Name
           fileName: 'Stage6',
           //File directory
-          directory: 'docs',
+          directory: 'Download',
         };
         let file = await RNHTMLtoPDF.convert(options);
         console.log(file.filePath);
@@ -2718,8 +2886,8 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveA() {
       const providers2 = await axios
-        .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-          REWORK_ASSIGNED: true,
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+          REWORK_ASSIGNED_A: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_A:false
         })
@@ -2733,8 +2901,8 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveB() {
       const providers2 = await axios
-        .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-          REWORK_ASSIGNED: true,
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+          REWORK_ASSIGNED_B: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_B:false
         })
@@ -2748,8 +2916,8 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveC() {
       const providers2 = await axios
-        .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-          REWORK_ASSIGNED: true,
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+          REWORK_ASSIGNED_C: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_C:false
         })
@@ -2763,8 +2931,8 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveD() {
       const providers2 = await axios
-        .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-          REWORK_ASSIGNED: true,
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+          REWORK_ASSIGNED_D: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_D:false
         })
@@ -2778,8 +2946,8 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveE() {
       const providers2 = await axios
-        .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-          REWORK_ASSIGNED: true,
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+          REWORK_ASSIGNED_E: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_E:false
         })

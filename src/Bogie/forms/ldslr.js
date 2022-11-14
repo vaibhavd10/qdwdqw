@@ -206,7 +206,7 @@ const Ldslr = ({navigation,route}) => {
     }  
     else {
       axios
-        .post(' http://10.109.148.232:8000/api/ac2t', {
+        .post(' http://192.168.2.122:8000/api/ac2t', {
           BOGIE_TYPE_NO:                              value,       
           SHIFT:                                      value2,
           APPLICABLE_WI_NO:                           value3,
@@ -417,7 +417,7 @@ const Ldslr = ({navigation,route}) => {
     }  
     else {
       axios
-        .post(' http://10.109.148.232:8000/api/ac2t', {
+        .post(' http://192.168.2.122:8000/api/ac2t', {
           BOGIE_TYPE_NO:                              value,       
           SHIFT:                                      value2,
           APPLICABLE_WI_NO:                           value3,
@@ -502,7 +502,7 @@ const Ldslr = ({navigation,route}) => {
 
   async function getAllProvider() {
     try {
-      const providers = await axios.get(`  http://10.109.148.232:8000/api/joblink/${id}`);
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/joblink/${id}`);
       setProviders([providers.data]);
       // setJobId(providers.data._id);
     } catch (error) {
@@ -515,17 +515,32 @@ const Ldslr = ({navigation,route}) => {
   // }, [providers]);
   // console.log("hii bahar hu")
 
+  async function assign (){
+    const providers2 = await axios
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+      JOB_ASSIGNED_B: true,
+    })
+    .then(function (response) {
+     
+    })
+    .catch(function (response) {
+      console.log(error);
+    });
+   }
+
   const passhandle= ()=>{
     postDataUsingSimplePostCall1();
     // setTimeout(function() {
     //   getAllProvider();
     // }, 4000);
     getAllProvider();
+    assign();
   };
   const failhandle= ()=>{
     postDataUsingSimplePostCall2();
     
       getAllProvider();
+      assign();
   
   };
 

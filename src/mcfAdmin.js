@@ -13,7 +13,7 @@ const McfAdmin = ({navigation}) => {
     async function getAllProvider() {
         try {
           const providers = await axios.get(
-            ' http://10.109.148.232:8000/api/get',
+            ' http://192.168.2.122:8000/api/get',
           );
           const filtered = providers.data.filter((user)=>{
             if (user.SHOP_TYPE=== 'BOGIE'){

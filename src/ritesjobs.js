@@ -25,7 +25,7 @@ const FormList = ({navigation, route}) => {
 
   async function getAllProvider() {
     try {
-      const providers = await axios.get(`  http://10.109.148.232:8000/api/get/${id}`);
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
       setProviders([providers.data]);
       // setJobId(providers.data._);
       setJobCondition1(providers.data.JOB_ASSIGNED_A)
@@ -107,503 +107,272 @@ const FormList = ({navigation, route}) => {
 
   //   ):(null)}
   //   ;
-  // };
-  async function M5008() {
+ 
+
+  const  M5008 =()=> {
     if(jobCondition1 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_A: true,
-      })
-      .then(function (response) {
         navigation.replace('M5008',{
-          user_id:id,
-          coachs:coach,
-          bogies:bogie,
-         })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
+            user_id:id,
+            coachs:coach,
+            bogies:bogie,
+           })
     }else alert('Job Submitted')
     
   }
 
-  async function M5008A() {
+  const  M5008A =()=> {
     if(jobCondition1 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_A: true,
-      })
-      .then(function (response) {
-        navigation.replace('M5008',{
-          user_id:id,
-          coachs:coach,
-          bogies:bogie,
-         })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
+        navigation.replace('M5008A',{
+            user_id:id,
+            coachs:coach,
+            bogies:bogie,
+           })
     }else alert('Job Submitted')
     
   }
-  async function M5017() {
+  const M5017 = ()=> {
     if(jobCondition3 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_C: true,
-      })
-      .then(function (response) {
+      
         navigation.replace('M5017',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
     }else alert('Job Submitted')
     
   }
-  async function M5023() {
+  const M5023=()=> {
     if(jobCondition4 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_D: true,
-      })
-      .then(function (response) {
+      
         navigation.replace('M5023',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      } else alert('Job Submitted')
     
   }
 
-  async function Ac2t() {
-    console.log(id)
+  const Ac2t=()=> {
+    // console.log(id)
     if(jobCondition2 === false){
-      console.log("if ke andar")
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
         navigation.replace('Ac2t',{
          user_id:id,
          coachs:coach,
          bogies:bogie,
         })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }
+      else alert('Job Submitted')
     
   }
 
-  async function Ac3t() {
+const  Ac3t =()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
         navigation.replace('Ac3t',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Accw() {
+  const Accw=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
         navigation.replace('Accw',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 
-  async function Ldslr() {
+  const Ldslr =()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
         navigation.replace('Ldslr',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+        }else alert('Job Submitted')
     
   }
-  async function Lgs() {
+  const Lgs=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
         navigation.replace('Lgs',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Lscn() {
+   const Lscn=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Lscn',{
+       navigation.replace('Lscn',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Lslrd() {
+   const Lslrd=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Lslrd',{
+       navigation.replace('Lslrd',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function LslrdAsp() {
+    const LslrdAsp=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('LslrdAsp',{
+      navigation.replace('LslrdAsp',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Lvph() {
+   const Lvph=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
         navigation.replace('Lvph',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
   async function Lwaccn() {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Lwaccn',{
+      navigation.replace('Lwaccn',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Lwcbac() {
+   const Lwcbac=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Lwcbac',{
+      navigation.replace('Lwcbac',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Lwlrrm() {
+    const  Lwlrrm=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Lwlrrm',{
+     navigation.replace('Lwlrrm',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function Lwlrrm2() {
+   const Lwlrrm2=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Lwlrrm2',{
+      navigation.replace('Lwlrrm2',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function LwlrrmAsp1() {
+    const LwlrrmAsp1=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('LwlrrmAsp1',{
+      navigation.replace('LwlrrmAsp1',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function LwlrrmAsp2() {
+     const LwlrrmAsp2=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('LwlrrmAsp2',{
+      navigation.replace('LwlrrmAsp2',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function LwlrrmKNAsp1() {
+    const LwlrrmKNAsp1=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('LwlrrmKNAsp1',{
+     navigation.replace('LwlrrmKNAsp1',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
-  async function LwlrrmKNAsp2() {
+    const LwlrrmKNAsp2=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('LwlrrmKNAsp2',{
+      navigation.replace('LwlrrmKNAsp2',{
           user_id:id,
           coachs:coach,
           bogies:bogie,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 
-  async function Stage1() {
-    console.log(jobCondition1,"dev is best")
+   const Stage1=()=> {
+    // console.log(jobCondition1,"dev is best")
     if(jobCondition1 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_A: true,
-      })
-      .then(function (response) {
-        navigation.replace('Stage1',{
+      navigation.replace('Stage1',{
           user_id:id,
           
          })
          
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 
-  async function Stage2() {
+    const Stage2=()=> {
     if(jobCondition2 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_B: true,
-      })
-      .then(function (response) {
-        navigation.replace('Stage2',{
+    navigation.replace('Stage2',{
           user_id:id,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 
-  async function Stage3() {
+   const  Stage3=()=> {
     if(jobCondition3 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_C: true,
-      })
-      .then(function (response) {
-        navigation.replace('Stage3',{
+      navigation.replace('Stage3',{
           user_id:id
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 
-  async function Stage4n5() {
+     const  Stage4n5=()=> {
     if(jobCondition4 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_D: true,
-      })
-      .then(function (response) {
-        navigation.replace('Stage4_5',{
+       navigation.replace('Stage4_5',{
           user_id:id,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 
-  async function Stage6() {
+       const Stage6=()=> {
     if(jobCondition5 === false){
-      const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
-        JOB_ASSIGNED_E: true,
-      })
-      .then(function (response) {
-        navigation.replace('Stage6',{
+     navigation.replace('Stage6',{
           user_id:id,
          })
-      })
-      .catch(function (response) {
-        console.log(error);
-      });
-    }else alert('Job Submitted')
+      }else alert('Job Submitted')
     
   }
 

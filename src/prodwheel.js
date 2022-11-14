@@ -16,7 +16,7 @@ const ProdWheel = ({navigation,route}) => {
   const getAllProvider= async() =>{
     try {
       const providers = await axios.get(
-        ' http://10.109.148.232:8000/api/get',
+        ' http://192.168.2.122:8000/api/get',
       );
       // console.log(providers.data);
       const filtered = providers.data.filter((user)=>{
@@ -146,7 +146,9 @@ const ProdWheel = ({navigation,route}) => {
                         {item.REF_WHEEL}
                       </Text>
                       </View>
-                      {item.REWORK_ASSIGNED === true ? (
+                      {item.REWORK_ASSIGNED_A === true ||item.REWORK_ASSIGNED_B === true||
+                      item.REWORK_ASSIGNED_C === true || item.REWORK_ASSIGNED_D === true ||
+                      item.REWORK_ASSIGNED_E === true ? (
                           <View style={{display: 'flex', flexDirection: 'row'}}>
                           <Text style={{marginHorizontal: 15, fontSize: 20}}>
                              Status -

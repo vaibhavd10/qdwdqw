@@ -28,6 +28,18 @@ export default function TabB({navigation, route}) {
   const [jobcondition3, setJobCondition3] = useState();
   const [jobcondition4, setJobCondition4] = useState();
   const [jobcondition5, setJobCondition5] = useState();
+  const [rework1,setRework1] = useState();
+  const [rework2,setRework2] = useState();
+  const [rework3,setRework3] = useState();
+  const [rework4,setRework4] = useState();
+  const [rework5,setRework5] = useState();
+  const [count1,setCount1] = useState();
+  const [count2,setCount2] = useState();
+  const [count3,setCount3] = useState();
+  const [count4,setCount4] = useState();
+  const [count5,setCount5] = useState();
+  
+
   const [shop,setShop] = useState();
   const [formname, setFormname] = useState();
   const [passed, setPassed] = useState();
@@ -70,7 +82,7 @@ export default function TabB({navigation, route}) {
   //   async function getAllProvider() {
   //  try {
   //    const providers = await axios.get(
-  //      ` http://10.109.148.232:8000/api/get/${id}`,
+  //      ` http://192.168.2.122:8000/api/get/${id}`,
   //    );
   //   // console.log(providers.data);
   //   setProviders([providers.data]);
@@ -86,18 +98,39 @@ export default function TabB({navigation, route}) {
   // },[providers]);
 
   //console.log(jobcondition1,"hello")
+  // console.log(stage1,"stage1")
+  // console.log(rework1,"hi")
 
   useEffect(() => {
     async function getAllProvider() {
-      try {
+      try {  
         const providers = await axios.get(
-          `  http://10.109.148.232:8000/api/joblink/${id}`,
+          `  http://192.168.2.122:8000/api/joblink/${id}`,
         );
         setProviders([providers.data]);
 
         const ac2Array = providers.data.jobData[0].AC2_LINK;
         var length = ac2Array.length;
 
+          providers.data.jobData.forEach(element => {
+          // console.log( element.JOB_ASSIGNED_A,"hiiiiiiiiiiii")
+          setFormname(element.BOGIE_TYPE);
+          setShop(element.SHOP_TYPE);
+          setJobCondition1(element.JOB_ASSIGNED_A);
+          setJobCondition2(element.JOB_ASSIGNED_B);
+          setJobCondition3(element.JOB_ASSIGNED_C);
+          setJobCondition4(element.JOB_ASSIGNED_D);
+          setJobCondition5(element.JOB_ASSIGNED_E);
+          setRework1(element.REWORK_ASSIGNED_A);
+          setRework2(element.REWORK_ASSIGNED_B);
+          setRework3(element.REWORK_ASSIGNED_C);
+          setRework4(element.REWORK_ASSIGNED_D);
+          setRework5(element.REWORK_ASSIGNED_E);
+          setCount1(element.COUNTER_A);
+          setCount2(element.COUNTER_B);
+          setCount3(element.COUNTER_C);
+          setCount4(element.COUNTER_D);
+          setCount5(element.COUNTER_E);
         //   console.log(jobcondition1,"lalalalalalallal")
 
         for (var i = 0; i < length; i++) {
@@ -111,33 +144,185 @@ export default function TabB({navigation, route}) {
             ac2Array[i].FORM_TYPE === 'M5008A'
           ) {
             setM5008A(ac2Array[i]);
-          } else if (
+          } 
+          else if (
             jobcondition1 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE1'
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === false &&
+            ac2Array[i].TEST_PASSED ===true &&
+            count1 === 0
           ) {
             setStage1(ac2Array[i]);
           } 
           else if (
+            jobcondition1 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === false &&
+            count1 === 1 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage1(ac2Array[i]);
+          } 
+          else if (
+            jobcondition1 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === false &&
+            count1 === 2 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage1(ac2Array[i]);
+          }
+          else if (
+            jobcondition1 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE1' &&
+            rework1 === false &&
+            count1 === 3 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage1(ac2Array[i]);
+          }
+          else if (
             jobcondition2 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE2'
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === false &&
+            ac2Array[i].TEST_PASSED ===true &&
+            count2 === 0
           ) {
             setStage2(ac2Array[i]);
           } 
           else if (
+            jobcondition2 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === false &&
+            count2 === 1 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage2(ac2Array[i]);
+          } 
+          else if (
+            jobcondition2 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === false &&
+            count2 === 2 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage2(ac2Array[i]);
+          } 
+          else if (
+            jobcondition2 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE2' &&
+            rework2 === false &&
+            count2 === 3 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage2(ac2Array[i]);
+          } 
+
+          else if (
             jobcondition3 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE3'
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === false &&
+            ac2Array[i].TEST_PASSED ===true &&
+            count3 === 0
+          ) {
+            setStage3(ac2Array[i]);
+          } 
+          else if (
+            jobcondition3 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === false &&
+            count3 === 1 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage3(ac2Array[i]);
+          } 
+          else if (
+            jobcondition3 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === false &&
+            count3 === 2 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage3(ac2Array[i]);
+          } 
+          else if (
+            jobcondition3 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE3' &&
+            rework3 === false &&
+            count3 === 3 &&
+            ac2Array[i].TEST_PASSED ===true
           ) {
             setStage3(ac2Array[i]);
           } 
           else if (
             jobcondition4 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE45'
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === false &&
+            ac2Array[i].TEST_PASSED ===true &&
+            count4 === 0
+          ) {
+            setStage4n5(ac2Array[i]);
+          } 
+          else if (
+            jobcondition4 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === false && 
+            count4 === 1 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage4n5(ac2Array[i]);
+          } 
+          else if (
+            jobcondition4 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === false && 
+            count4 === 2 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage4n5(ac2Array[i]);
+          } 
+          else if (
+            jobcondition4 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE45' &&
+            rework4 === false && 
+            count4 === 3 &&
+            ac2Array[i].TEST_PASSED ===true
           ) {
             setStage4n5(ac2Array[i]);
           } 
           else if (
             jobcondition5 === true &&
-            ac2Array[i].FORM_TYPE === 'STAGE6'
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === false &&
+            ac2Array[i].TEST_PASSED ===true &&
+            count5 === 0
+          ) {
+            setStage6(ac2Array[i]);
+          } 
+          else if (
+            jobcondition5 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === false &&
+            count5 === 1 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage6(ac2Array[i]);
+          } 
+          else if (
+            jobcondition5 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === false &&
+            count5 === 2 &&
+            ac2Array[i].TEST_PASSED ===true
+          ) {
+            setStage6(ac2Array[i]);
+          } 
+          else if (
+            jobcondition5 === true &&
+            ac2Array[i].FORM_TYPE === 'STAGE6' &&
+            rework5 === false &&
+            count5 === 3 &&
+            ac2Array[i].TEST_PASSED ===true
           ) {
             setStage6(ac2Array[i]);
           } 
@@ -160,15 +345,10 @@ export default function TabB({navigation, route}) {
         //console.log('hello',providers.data)
         // Loop Starts
         //setFormname(providers.data.jobData[1].BOGIE_TYPE)
-        providers.data.jobData.forEach(element => {
-          // console.log( element.JOB_ASSIGNED_A,"hiiiiiiiiiiii")
-          setFormname(element.BOGIE_TYPE);
-          setShop(element.SHOP_TYPE);
-          setJobCondition1(element.JOB_ASSIGNED_A);
-          setJobCondition2(element.JOB_ASSIGNED_B);
-          setJobCondition3(element.JOB_ASSIGNED_C);
-          setJobCondition4(element.JOB_ASSIGNED_D);
-          setJobCondition5(element.JOB_ASSIGNED_E);
+      
+          
+
+
 
 
           // AC_Link
@@ -985,7 +1165,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5008',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1453,7 +1633,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5008A',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1627,7 +1807,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5017',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1841,7 +2021,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'M5023',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -1856,9 +2036,17 @@ export default function TabB({navigation, route}) {
 
   // stage 1 pdf
   const createPDFstage1 = async () => {
+    console.log("hello")
     if (await isPermitted()) {
       let options = {
         //Content to print
+        format:"A4",
+        margin:{
+          top:"80px",
+          right:"80px",
+          bottom:"100px",
+          left:"80px"
+        },
         html: `
         <html lang="en">
 
@@ -2038,8 +2226,9 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'Stage1',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
+
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
       setFilePath(file.filePath);
@@ -2188,7 +2377,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'Stage2',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2377,7 +2566,7 @@ export default function TabB({navigation, route}) {
         //File Name
         fileName: 'Stage3',
         //File directory
-        directory: 'docs',
+        directory: 'Download',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
@@ -2553,7 +2742,7 @@ export default function TabB({navigation, route}) {
           //File Name
           fileName: 'Stage4_5',
           //File directory
-          directory: 'docs',
+          directory: 'Download',
         };
         let file = await RNHTMLtoPDF.convert(options);
         console.log(file.filePath);
@@ -2703,7 +2892,7 @@ export default function TabB({navigation, route}) {
           //File Name
           fileName: 'Stage6',
           //File directory
-          directory: 'docs',
+          directory: 'Download',
         };
         let file = await RNHTMLtoPDF.convert(options);
         console.log(file.filePath);

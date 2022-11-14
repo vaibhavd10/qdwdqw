@@ -14,7 +14,7 @@ import axios from 'axios';
 
 const Stage6 = ({navigation,route}) => {
   const id = route.params.user_id;
-  console.log(id,"id")
+  // console.log(id,"id")
 
   const [input1, setinput1] = useState();
   const [input2, setinput2] = useState();
@@ -29,12 +29,14 @@ const Stage6 = ({navigation,route}) => {
   const [teststatus, setteststatus] = useState();
   const [providers, setProviders] = useState();
   const [user,setUser] = useState();
+  const [providers3,setProviders3] = useState([]);
+  var [count, setCount] = useState();
 
 
 
   const post1 = () => {
     axios
-      .post('http://10.109.148.232:8000/api/ac2t', {
+      .post('http://192.168.2.122:8000/api/ac2t', {
         FORM_TYPE: 'STAGE6',
         input1: input1,
         input2: input2,
@@ -61,7 +63,7 @@ const Stage6 = ({navigation,route}) => {
 
   const post2 = () => {
     axios
-      .post('http://10.109.148.232:8000/api/ac2t', {
+      .post('http://192.168.2.122:8000/api/ac2t', {
         FORM_TYPE: 'STAGE6',
         input1: input1,
         input2: input2,
@@ -91,7 +93,7 @@ const Stage6 = ({navigation,route}) => {
 async function getAllProvider() {
     try {
       const providers = await axios.get(
-        `  http://10.109.148.232:8000/api/joblink/${id}`,
+        `  http://192.168.2.122:8000/api/joblink/${id}`,
       );
        setProviders([providers.data]);
       // setJobId(providers.data._id);
@@ -110,7 +112,7 @@ async function getAllProvider() {
   const getAllProvider2= async() =>{
     try {
       const providers = await axios.get(
-        'http://10.109.148.232:8000/api/userno',
+        'http://192.168.2.122:8000/api/userno',
       );
       // console.log(providers.data);
       setUser(providers.data);
@@ -171,6 +173,72 @@ async function getAllProvider() {
    });
   }
 
+  async function assign (){
+    const providers2 = await axios
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+      JOB_ASSIGNED_E: true,
+    })
+    .then(function (response) {
+     
+    })
+    .catch(function (response) {
+      console.log(error);
+    });
+   }
+
+
+   async function getAllProvider3() {
+    try {
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
+      setProviders3(providers.data);
+      // setJobId(providers.data._id);
+      setCount(providers3.COUNTER_E)
+      // console.log(providers.COACH_TYPE,"hkohj")
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  useEffect(() => {
+    getAllProvider3();
+  }, [providers3]);
+     
+     // 
+  // console.log(providers3.REWORK_ASSIGNED_A,"rework stage 1")
+  
+  
+  // setting counter
+  async function assignRework (){
+    const providers2 = await axios
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+      JOB_ASSIGNED_E: true,
+      COUNTER_E: ++count,
+      
+    })
+    .then(function (response) {
+     
+    })
+    .catch(function (response) {
+      console.log(error);
+    });
+   }
+  
+   async function assignReworkPass (){
+    const providers2 = await axios
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+      JOB_ASSIGNED_E: true,
+      COUNTER_E: ++count,
+      REWORK_ASSIGNED_E:false
+    })
+    .then(function (response) {
+     
+    })
+    .catch(function (response) {
+      console.log(error);
+    });
+   }
+  
+
 
 
 
@@ -179,12 +247,28 @@ async function getAllProvider() {
    post1();
    getAllProvider();
    msgpass();
+   assign();
   };
 
   const failhandle = () => {
     post2();
     getAllProvider();
     msgfail();
+    assign();
+  };
+
+
+  const passhandlerework = () => {
+    post1();  
+    getAllProvider();
+    msgpass();
+    assignReworkPass();
+  };
+  const failhandlerework = () => {
+    post2();    
+    getAllProvider();
+    msgfail();
+    assignRework();
   };
 
   return (
@@ -346,19 +430,39 @@ async function getAllProvider() {
             </View>
           </View>
         </View>
-
-        <View style={styles.buttonView}>
-          <TouchableOpacity style={styles.button1} onPress={passhandle}>
-            <Text style={{color: 'white', fontSize: 20}} >
+        {providers3.REWORK_ASSIGNED_E === false ? (
+          <View style={styles.buttonView}>
+          <TouchableOpacity style={styles.button1}
+          onPress={passhandle}>
+            <Text
+              style={{color: 'white', fontSize: 20}}
+             
+              >
               Pass
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button1} onPress={failhandle}>
-            <Text style={{color: 'white', fontSize: 20}} >
-              Fail
-            </Text>
+            <Text style={{color: 'white', fontSize: 20}}>Fail</Text>
           </TouchableOpacity>
         </View>
+        ):(
+          <View style={styles.buttonView}>
+          <TouchableOpacity style={styles.button1}
+          onPress={passhandlerework}>
+            <Text
+              style={{color: 'white', fontSize: 20}}>
+              Pass
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button1} onPress={failhandlerework}>
+            <Text style={{color: 'white', fontSize: 20}}>Fail</Text>
+          </TouchableOpacity>
+        </View>
+        )}
+
+
+
+
       </ScrollView>
     </SafeAreaView>
   );

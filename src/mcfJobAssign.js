@@ -21,7 +21,7 @@ const McfJobAssign = ({navigation, route}) => {
 
   async function getAllProvider() {
     try {
-      const providers = await axios.get(`  http://10.109.148.232:8000/api/get/${id}`);
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
       setProviders([providers.data]);
       // setJobId(providers.data._id);
       // console.log(providers.COACH_TYPE,"hkohj")
@@ -34,10 +34,10 @@ const McfJobAssign = ({navigation, route}) => {
     getAllProvider();
   }, [providers]);
   
-
+  // console.log(providers.SHOP_TYPE,"shop")
   async function handleApprove() {
     const providers2 = await axios
-      .put(`  http://10.109.148.232:8000/api/get/${id}`, {
+      .put(`  http://192.168.2.122:8000/api/get/${id}`, {
         ASSIGNED_TO_RITES_QCI: true,
       })
       .then(function (response) {
@@ -58,7 +58,7 @@ const McfJobAssign = ({navigation, route}) => {
   const getAllProvider2= async() =>{
     try {
       const providers = await axios.get(
-        'http://10.109.148.232:8000/api/userno',
+        'http://192.168.2.122:8000/api/userno',
       );
       // console.log(providers.data);
       setUser(providers.data);
@@ -86,7 +86,30 @@ const McfJobAssign = ({navigation, route}) => {
    
    var config = {
      method: 'post',
-     url: `http://sms.heightsconsultancy.com/api/mt/SendSMS?user=software1&password=password&senderid=INFOMS&channel=TRANS&DCS=0&flashsms=0&number=${user[0].QCI_NUMBER}&text=Job_has_been_Assigned`,
+     url: `http://sms.heightsconsultancy.com/api/mt/SendSMS?user=software1&password=password&senderid=INFOMS&channel=TRANS&DCS=0&flashsms=0&number=${user[0].QCI_NUMBER}&text=Job_has_been_Assigned_BOGIE`,
+     headers: data.getHeaders ? data.getHeaders() : { 'Content-Type': 'multipart/form-data' },
+     data : data
+   };
+   
+   axios(config)
+   .then(function (response) {
+     console.log(JSON.stringify(response.data));
+   })
+   .catch(function (error) {
+     console.log(error);
+   });
+  }
+
+  const msg2 = ()=>{
+    var data = new FormData();
+   data.append('cavcvd', 'vadsdvs vn ');
+   data.append('aCCas mc ', 'acs, ns v,');
+  
+   
+   
+   var config = {
+     method: 'post',
+     url: `http://sms.heightsconsultancy.com/api/mt/SendSMS?user=software1&password=password&senderid=INFOMS&channel=TRANS&DCS=0&flashsms=0&number=${user[0].QCI_NUMBER}&text=Job_has_been_Assigned_WHEEL`,
      headers: data.getHeaders ? data.getHeaders() : { 'Content-Type': 'multipart/form-data' },
      data : data
    };
@@ -103,8 +126,16 @@ const McfJobAssign = ({navigation, route}) => {
 
   const postsms=()=>{
     handleApprove();
-    msg();
+    // msg();
+    console.log("BOGIE")
   }
+
+  const postsms2=()=>{
+    handleApprove();
+    // msg2();
+    console.log("Wheel")
+  }
+
 
   return (
     <SafeAreaView>
@@ -192,7 +223,7 @@ const McfJobAssign = ({navigation, route}) => {
                   <View
                     style={{justifyContent: 'center', alignItems: 'center'}}>
                     
-                    {item.ASSIGNED_TO_RITES_QCI === false ? (
+                    {item.ASSIGNED_TO_RITES_QCI === false && item.SHOP_TYPE === "BOGIE" ? (
                         <TouchableOpacity
                       style={styles.button1}
                       onPress={postsms}>
@@ -200,7 +231,16 @@ const McfJobAssign = ({navigation, route}) => {
                         Assign Job to RITES QCI
                       </Text>
                     </TouchableOpacity>
-                    ):(null)}
+                    ): item.ASSIGNED_TO_RITES_QCI === false && item.SHOP_TYPE === "Wheel" ? (
+                      <TouchableOpacity
+                      style={styles.button1}
+                      onPress={postsms2}>
+                      <Text style={{color: 'white'}}>
+                        Assign Job to RITES QCI
+                      </Text>
+                    </TouchableOpacity>
+                    ):
+                    (null)}
                   </View>
                 </TouchableOpacity>
               </View>

@@ -7,7 +7,7 @@
 //     try {
 //       var providerss = await axios.get(
        
-//        ` http://10.109.148.232:8000//api/get/${num}`,
+//        ` http://192.168.2.122:8000//api/get/${num}`,
 //       );
 //       // console.log(providerss.data._id);
 //       setProviders([providerss.data]);

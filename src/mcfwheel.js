@@ -16,7 +16,7 @@ const McfWheel = ({navigation,route}) => {
   const getAllProvider= async() =>{
     try {
       const providers = await axios.get(
-        ' http://10.109.148.232:8000/api/get',
+        ' http://192.168.2.122:8000/api/get',
       );
       // console.log(providers.data);
       const filtered = providers.data.filter((user)=>{
