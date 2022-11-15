@@ -81,7 +81,7 @@ export default function TabC({navigation, route}) {
   //   async function getAllProvider() {
   //  try {
   //    const providers = await axios.get(
-  //      ` http://10.109.148.231:8000/api/get/${id}`,
+  //      ` http://192.168.2.122:8000/api/get/${id}`,
   //    );
   //   // console.log(providers.data);
   //   setProviders([providers.data]);
@@ -102,7 +102,7 @@ export default function TabC({navigation, route}) {
     async function getAllProvider() {
       try {
         const providers = await axios.get(
-          `  http://10.109.148.231:8000/api/joblink/${id}`,
+          `  http://192.168.2.122:8000/api/joblink/${id}`,
         );
         setProviders([providers.data]);
 
@@ -2921,7 +2921,7 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveA() {
       const providers2 = await axios
-        .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
           REWORK_ASSIGNED_A: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_A:false
@@ -2936,7 +2936,7 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveB() {
       const providers2 = await axios
-        .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
           REWORK_ASSIGNED_B: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_B:false
@@ -2951,7 +2951,7 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveC() {
       const providers2 = await axios
-        .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
           REWORK_ASSIGNED_C: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_C:false
@@ -2966,7 +2966,7 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveD() {
       const providers2 = await axios
-        .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
           REWORK_ASSIGNED_D: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_D:false
@@ -2981,7 +2981,7 @@ export default function TabC({navigation, route}) {
 
     async function handleApproveE() {
       const providers2 = await axios
-        .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+        .put(`  http://192.168.2.122:8000/api/get/${id}`, {
           REWORK_ASSIGNED_E: true,
           ASSIGNED_TO_RITES_QCI:false,
           JOB_ASSIGNED_E:false

@@ -109,6 +109,10 @@ import axios from 'axios';
     const [checkedk73,setCheckedk73]=useState();
     const [checkedk74,setCheckedk74]=useState();
     const form = "M5008";
+    const [user,setUser] = useState();
+    const [providers3,setProviders3] = useState([]);
+    var [count, setCount] = useState();
+  
 
   
 
@@ -120,7 +124,7 @@ import axios from 'axios';
     
     
       axios
-        .post(' http://10.109.148.231:8000/api/ac2t', {
+        .post(' http://192.168.2.122:8000/api/ac2t', {
                    //M5008
           FORM_TYPE: form,
           M5008_Drawing_No:     drawingNo,
@@ -234,7 +238,7 @@ import axios from 'axios';
   const postDataUsingSimplePostCall2 = () => {
     
     axios
-    .post(' http://10.109.148.231:8000/api/ac2t', {
+    .post(' http://192.168.2.122:8000/api/ac2t', {
                //M5008
       FORM_TYPE: form,
       M5008_Drawing_No:     drawingNo,
@@ -340,7 +344,7 @@ import axios from 'axios';
 
   async function getAllProvider() {
     try {
-      const providers = await axios.get(`  http://10.109.148.231:8000/api/joblink/${id}`);
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/joblink/${id}`);
       setProviders([providers.data]);
       // setJobId(providers.data._id);
     } catch (error) {
@@ -348,20 +352,129 @@ import axios from 'axios';
     }
   }
 
-
-
-  const passhandle= ()=>{
-    postDataUsingSimplePostCall1();
+  const getAllProvider2= async() =>{
+    try {
+      const providers = await axios.get(
+        'http://192.168.2.122:8000/api/userno',
+      );
+      // console.log(providers.data);
+      setUser(providers.data);
+      // console.log(providers.data)
+      // setJobId(providers.data._id);
+      // setQA(user.QA_NUMBER)
+      // setProd(user.PROD_NUMBER)
+  
+    } catch (error) {
+      console.log(error);
+    }
+  }
+   // sms part
+  const msgpass = ()=>{
+    var data = new FormData();
+   data.append('cavcvd', 'vadsdvs vn ');
+   data.append('aCCas mc ', 'acs, ns v,');
+  
    
-   getAllProvider();
-   assign();
-  };
-  const failhandle= ()=>{
-    postDataUsingSimplePostCall2();
+   
+   var config = {
+     method: 'post',
+     url: `http://sms.heightsconsultancy.com/api/mt/SendSMS?user=software1&password=password&senderid=INFOMS&channel=TRANS&DCS=0&flashsms=0&number=${user[0].QA_NUMBER},${user[0].PROD_NUMBER}&text=Job_has_been_Passed`,
+     headers: data.getHeaders ? data.getHeaders() : { 'Content-Type': 'multipart/form-data' },
+     data : data
+   };
+   
+   axios(config)
+   .then(function (response) {
+     console.log(JSON.stringify(response.data));
+   })
+   .catch(function (error) {
+     console.log(error);
+   });
+  }
+
+
+  const msgfail = ()=>{
+    var data = new FormData();
+   data.append('cavcvd', 'vadsdvs vn ');
+   data.append('aCCas mc ', 'acs, ns v,');
+  
+   
+   
+   var config = {
+     method: 'post',
+     url: `http://sms.heightsconsultancy.com/api/mt/SendSMS?user=software1&password=password&senderid=INFOMS&channel=TRANS&DCS=0&flashsms=0&number=${user[0].QA_NUMBER},${user[0].PROD_NUMBER}&text=Job_has_been_Failed`,
+     headers: data.getHeaders ? data.getHeaders() : { 'Content-Type': 'multipart/form-data' },
+     data : data
+   };
+   
+   axios(config)
+   .then(function (response) {
+     console.log(JSON.stringify(response.data));
+   })
+   .catch(function (error) {
+     console.log(error);
+   });
+  }
+  
+  
+  
+  useEffect(() => {
+    getAllProvider2();
+ }, [user]);
+
+
+ async function getAllProvider3() {
+  try {
+    const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
+    setProviders3(providers.data);
+    // setJobId(providers.data._id);
+    setCount(providers3.COUNTER_A)
+    // console.log(providers.COACH_TYPE,"hkohj")
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+useEffect(() => {
+  getAllProvider3();
+}, [providers3]);
+   
+   // 
+// console.log(providers3.REWORK_ASSIGNED_A,"rework stage 1")
+
+
+// setting counter
+async function assignRework (){
+  const providers2 = await axios
+  .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+    JOB_ASSIGNED_A: true,
+    COUNTER_A: ++count,
     
-      getAllProvider();
-      assign();
-  };
+  })
+  .then(function (response) {
+   
+  })
+  .catch(function (response) {
+    console.log(error);
+  });
+ }
+
+ async function assignReworkPass (){
+  const providers2 = await axios
+  .put(`  http://192.168.2.122:8000/api/get/${id}`, {
+    JOB_ASSIGNED_A: true,
+    COUNTER_A: ++count,
+    REWORK_ASSIGNED_A:false
+  })
+  .then(function (response) {
+   
+  })
+  .catch(function (response) {
+    console.log(error);
+  });
+ }
+
+
 
     const home = () =>{
       navigation.navigate('Bogie List')
@@ -370,7 +483,7 @@ import axios from 'axios';
 
      async function assign (){
       const providers2 = await axios
-      .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+      .put(`  http://192.168.2.122:8000/api/get/${id}`, {
         JOB_ASSIGNED_A: true,
       })
       .then(function (response) {
@@ -380,6 +493,31 @@ import axios from 'axios';
         console.log(error);
       });
      }
+
+
+     
+
+
+
+
+
+
+
+
+  const passhandle= ()=>{
+    postDataUsingSimplePostCall1();
+   
+   getAllProvider();
+   msgpass();
+   assign();
+  };
+  const failhandle= ()=>{
+    postDataUsingSimplePostCall2();
+    
+      getAllProvider();
+      msgfail();
+      assign();
+  };
   
     return (
       <ScrollView style={{backgroundColor:"white"}}>

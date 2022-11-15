@@ -21,7 +21,7 @@ const McfJobAssign = ({navigation, route}) => {
 
   async function getAllProvider() {
     try {
-      const providers = await axios.get(`  http://10.109.148.231:8000/api/get/${id}`);
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
       setProviders([providers.data]);
       // setJobId(providers.data._id);
       // console.log(providers.COACH_TYPE,"hkohj")
@@ -37,7 +37,7 @@ const McfJobAssign = ({navigation, route}) => {
   // console.log(providers.SHOP_TYPE,"shop")
   async function handleApprove() {
     const providers2 = await axios
-      .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+      .put(`  http://192.168.2.122:8000/api/get/${id}`, {
         ASSIGNED_TO_RITES_QCI: true,
       })
       .then(function (response) {
@@ -58,7 +58,7 @@ const McfJobAssign = ({navigation, route}) => {
   const getAllProvider2= async() =>{
     try {
       const providers = await axios.get(
-        'http://10.109.148.231:8000/api/userno',
+        'http://192.168.2.122:8000/api/userno',
       );
       // console.log(providers.data);
       setUser(providers.data);

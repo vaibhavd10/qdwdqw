@@ -44,7 +44,7 @@ export default function TabA({navigation,route}) {
      async function getAllProvider() {
     try {
       const providers = await axios.get(
-        ` http://10.109.148.231:8000/api/get/${id}`,
+        ` http://192.168.2.122:8000/api/get/${id}`,
       );
      // console.log(providers.data);
      setProviders([providers.data]);

@@ -36,7 +36,7 @@ const Stage6 = ({navigation,route}) => {
 
   const post1 = () => {
     axios
-      .post('http://10.109.148.231:8000/api/ac2t', {
+      .post('http://192.168.2.122:8000/api/ac2t', {
         FORM_TYPE: 'STAGE6',
         input1: input1,
         input2: input2,
@@ -63,7 +63,7 @@ const Stage6 = ({navigation,route}) => {
 
   const post2 = () => {
     axios
-      .post('http://10.109.148.231:8000/api/ac2t', {
+      .post('http://192.168.2.122:8000/api/ac2t', {
         FORM_TYPE: 'STAGE6',
         input1: input1,
         input2: input2,
@@ -93,7 +93,7 @@ const Stage6 = ({navigation,route}) => {
 async function getAllProvider() {
     try {
       const providers = await axios.get(
-        `  http://10.109.148.231:8000/api/joblink/${id}`,
+        `  http://192.168.2.122:8000/api/joblink/${id}`,
       );
        setProviders([providers.data]);
       // setJobId(providers.data._id);
@@ -112,7 +112,7 @@ async function getAllProvider() {
   const getAllProvider2= async() =>{
     try {
       const providers = await axios.get(
-        'http://10.109.148.231:8000/api/userno',
+        'http://192.168.2.122:8000/api/userno',
       );
       // console.log(providers.data);
       setUser(providers.data);
@@ -175,7 +175,7 @@ async function getAllProvider() {
 
   async function assign (){
     const providers2 = await axios
-    .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
       JOB_ASSIGNED_E: true,
     })
     .then(function (response) {
@@ -189,7 +189,7 @@ async function getAllProvider() {
 
    async function getAllProvider3() {
     try {
-      const providers = await axios.get(`  http://10.109.148.231:8000/api/get/${id}`);
+      const providers = await axios.get(`  http://192.168.2.122:8000/api/get/${id}`);
       setProviders3(providers.data);
       // setJobId(providers.data._id);
       setCount(providers3.COUNTER_E)
@@ -210,7 +210,7 @@ async function getAllProvider() {
   // setting counter
   async function assignRework (){
     const providers2 = await axios
-    .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
       JOB_ASSIGNED_E: true,
       COUNTER_E: ++count,
       
@@ -225,7 +225,7 @@ async function getAllProvider() {
   
    async function assignReworkPass (){
     const providers2 = await axios
-    .put(`  http://10.109.148.231:8000/api/get/${id}`, {
+    .put(`  http://192.168.2.122:8000/api/get/${id}`, {
       JOB_ASSIGNED_E: true,
       COUNTER_E: ++count,
       REWORK_ASSIGNED_E:false

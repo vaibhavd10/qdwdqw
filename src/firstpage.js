@@ -121,7 +121,7 @@ const Firstpage = ({navigation}) => {
   const foo = () => {
     console.log(pushValue, 'else wali hain');
     axios
-      .post(' http://10.109.148.231:8000/api/prod', {
+      .post(' http://192.168.2.122:8000/api/prod', {
         SHOP_TYPE: bogie,
         BOGIE_TYPE: value3,
         COACH_TYPE: value4,
@@ -212,7 +212,7 @@ const Firstpage = ({navigation}) => {
   const getAllProvider= async() =>{
     try {
       const providers = await axios.get(
-        'http://10.109.148.231:8000/api/userno',
+        'http://192.168.2.122:8000/api/userno',
       );
       // console.log(providers.data);
       setUser(providers.data);

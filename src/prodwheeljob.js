@@ -101,7 +101,7 @@ const ProdWheelJob = ({navigation}) => {
   const foo = () => {
     // console.log(pushValue, 'else wali hain');
     axios
-      .post(' http://10.109.148.231:8000/api/prod', {
+      .post(' http://192.168.2.122:8000/api/prod', {
         SHOP_TYPE: wheel,
         DATE_CREATED: datee,
         REF_WHEEL:drg,
@@ -135,7 +135,7 @@ const ProdWheelJob = ({navigation}) => {
       data.append('file_attachment', fileToUpload);
       // Please change file upload URL
       let res = await axios(
-        'http://10.109.148.231:8000/api/upload',
+        'http://192.168.2.122:8000/api/upload',
         {
           method: 'post',
           body: data,
@@ -193,7 +193,7 @@ const ProdWheelJob = ({navigation}) => {
   const getAllProvider= async() =>{
   try {
     const providers = await axios.get(
-      'http://10.109.148.231:8000/api/userno',
+      'http://192.168.2.122:8000/api/userno',
     );
     // console.log(providers.data);
     setUser(providers.data);
@@ -237,6 +237,11 @@ const msg = ()=>{
   foo();
    msg();
 };
+
+
+// web socket
+
+//  ----------
 
 
   return (
